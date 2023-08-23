@@ -32,16 +32,17 @@ let contador=0;
 
 
 function iniciar(){
-    var imagenes=document.querySelectorAll('#cajaimagenes img');
-     soltar=document.getElementById('cajasoltar');
-     soltar2  =document.getElementById('cajasoltar2'); 
+   let imagenes = document.querySelectorAll('#cajaimagenes');
+     soltar = document.getElementById('cajasoltar');
+     soltar2 = document.getElementById('cajasoltar2'); 
      soltar3 = document.getElementById('cajasoltar3'); 
 
     for(var i=0; i<imagenes.length; i++){
+        
         imagenes[i].addEventListener('dragstart', arrastrado, false);
         imagenes[i].addEventListener('dragend', finalizado, false);
     }
-
+    console.log(imagenes[i])
     soltar.addEventListener('dragenter', function(e){
     e.preventDefault(); }, false);
     soltar.addEventListener('dragover', function(e){
@@ -87,3 +88,11 @@ function reinicio() {
 iniciar()
 window.addEventListener('load', iniciar, false);
 
+function mostrarMensajeGanaste() {
+    let mensajeGanaste = document.createElement('div');
+    mensajeGanaste.textContent = '¡Ganaste!';
+    mensajeGanaste.style.fontSize = '24px';
+    mensajeGanaste.style.fontWeight = 'bold';
+    mensajeGanaste.style.textAlign = 'center';
+    document.body.appendChild(mensajeGanaste);
+}
